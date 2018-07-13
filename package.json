@@ -1,0 +1,37 @@
+{
+  "name": "of-simplify-react",
+  "version": "0.0.1",
+  "description": "Easy to use React components extend Office UI Fabric",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "test": "mocha --recursive --require babel-register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardzcode/of-simplify-react.git"
+  },
+  "keywords": [
+    "React",
+    "Office",
+    "Fabric"
+  ],
+  "author": "Richard Zhang <richardzcode@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richardzcode/of-simplify-react/issues"
+  },
+  "homepage": "https://github.com/richardzcode/of-simplify-react#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "mocha": "^5.2.0",
+    "react": "^16.4.1"
+  },
+  "dependencies": {
+    "fsts": "0.0.41",
+    "office-ui-fabric-react": "^6.33.1"
+  }
+}
