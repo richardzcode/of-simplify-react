@@ -48,7 +48,7 @@ class App extends Component {
       >Preferences</NavItem>
 
       <NavItem
-        key="sort"
+        key="signOut"
         icon="SignOut"
         far
       >Sign Out</NavItem>
