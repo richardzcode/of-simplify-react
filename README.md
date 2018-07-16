@@ -40,9 +40,7 @@ class App extends Component {
         onClick={() => this.to('/preferences')}
       >Preferences</NavItem>
 
-      <NavItem key="signOut" icon="SignOut"
-        far
-      >Sign Out</NavItem>
+      <NavItem key="signOut" icon="SignOut" far>Sign Out</NavItem>
     </Navigator>
   }
 }
