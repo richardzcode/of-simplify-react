@@ -26,32 +26,21 @@ class App extends Component {
 
   render() {
     <Navigator>
-      <NavItem
-        key="home"
-        icon="Home"
-        checked
+      <NavItem key="home" icon="Home" checked
         onClick={() => this.to('/')}
       >Home</NavItem>
-      <NavItem
-        key="cat"
-        icon="Cat"
+      <NavItem key="cat" icon="Cat"
         onClick={() => this.to('/cat')}
       >Cat</NavItem>
-      <NavItem
-        key="coffee"
-        icon="CoffeeScript"
+      <NavItem key="coffee" icon="CoffeeScript"
         onClick={() => this.to('/coffee')}
       >Coffee</NavItem>
 
-      <NavItem
-        key="preferences"
-        overflow
+      <NavItem key="preferences" overflow
         onClick={() => this.to('/preferences')}
       >Preferences</NavItem>
 
-      <NavItem
-        key="signOut"
-        icon="SignOut"
+      <NavItem key="signOut" icon="SignOut"
         far
       >Sign Out</NavItem>
     </Navigator>
