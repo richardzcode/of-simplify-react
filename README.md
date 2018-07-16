@@ -11,6 +11,8 @@ npm install of-simplify-react
 
 ### Navigator
 
+Navigator wraps around `CommandBar` to provide a simple menu system solution.
+
 ```
 import React, { Component } from 'react';
 import OfSimplify, { Navigator, NavItem } from 'of-simplify-react';
