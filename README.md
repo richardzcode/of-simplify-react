@@ -20,29 +20,24 @@ import OfSimplify, { Navigator, NavItem } from 'of-simplify-react';
 OfSimplify.initializeIcons(); // in order to show icons
 
 class App extends Component {
-  to(path) {
-    console.log('go ' + path);
+  constructor(props) {
+    super(props);
+    this.handleNavigate = this.handleNavigate.bind(this);
+  }
+
+  handleNavigate(key) {
+    console.log('menu item clicked: ' + key);
   }
 
   render() {
-    <Navigator>
-      <NavItem key="home" icon="Home" checked
-        onClick={() => this.to('/')}
-      >Home</NavItem>
-      <NavItem key="cat" icon="Cat"
-        onClick={() => this.to('/cat')}
-      >Cat</NavItem>
-      <NavItem key="coffee" icon="CoffeeScript"
-        onClick={() => this.to('/coffee')}
-      >Coffee</NavItem>
+    <Navigator onNavigate={this.handleNavigate}>
+      <NavItem key="home" icon="Home" checked>Home</NavItem>
+      <NavItem key="cat" icon="Cat">Cat</NavItem>
+      <NavItem key="coffee" icon="CoffeeScript">Coffee</NavItem>
 
-      <NavItem key="preferences" overflow
-        onClick={() => this.to('/preferences')}
-      >Preferences</NavItem>
+      <NavItem key="preferences" overflow>Preferences</NavItem>
 
-      <NavItem key="signOut" icon="SignOut"
-        far
-      >Sign Out</NavItem>
+      <NavItem key="signOut" icon="SignOut" far>Sign Out</NavItem>
     </Navigator>
   }
 }

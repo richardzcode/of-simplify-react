@@ -5,12 +5,24 @@ import OfTheme from '../OfTheme';
 import NavItem from './NavItem';
 
 export default class Navigator extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.navigateHandler = this.navigateHandler.bind(this);
+  }
+
+  navigateHandler(key) {
+    const { onNavigate } = this.props;
+    if (onNavigate) { onNavigate(key); }
+  }
+
   render() {
     const theme = this.props.theme || OfTheme;
 
+    const navigator = this;
     const all_items = React.Children.map(this.props.children, (child, index) => {
       if (child.type !== NavItem) { return {}; }
-      return NavItem.toCommandBarItem(child);
+      return NavItem.toCommandBarItem(child, navigator);
     });
 
     const items = all_items.filter(item => !item.far && !item.overflow);

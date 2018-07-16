@@ -4,7 +4,7 @@ import { JS, Logger } from 'fsts';
 const logger = new Logger('NavItem');
 
 export default class NavItem extends React.Component {
-  static toCommandBarItem(el) {
+  static toCommandBarItem(el, navigator) {
     const { label, icon, overflow, far } = el.props;
     return Object.assign(
       {
@@ -12,7 +12,8 @@ export default class NavItem extends React.Component {
         name: label || el.props.children,
         iconProps: icon? { iconName: icon } : null,
         far: !!far,
-        overflow: !!overflow
+        overflow: !!overflow,
+        onClick: () => navigator && navigator.navigateHandler(el.key)
       },
       JS.lessProps(el.props, [
         'label',
