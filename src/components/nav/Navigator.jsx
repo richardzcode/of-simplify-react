@@ -1,7 +1,7 @@
 import React from 'react';
+import { JS } from 'fsts';
 import { CommandBar } from 'office-ui-fabric-react/lib/CommandBar';
 
-import OfTheme from '../OfTheme';
 import NavItem from './NavItem';
 
 export default class Navigator extends React.Component {
@@ -17,12 +17,15 @@ export default class Navigator extends React.Component {
   }
 
   render() {
-    const theme = this.props.theme || OfTheme;
+    const { style } = this.props;
+    const theme = this.props.theme || {};
+    const rootStyle = Object.assign({}, JS.lessProps(theme.Navigator, ['item', 'icon']), style);
 
+    const inheritedProps = { theme };
     const navigator = this;
     const all_items = React.Children.map(this.props.children, (child, index) => {
       if (child.type !== NavItem) { return {}; }
-      return NavItem.toCommandBarItem(child, navigator);
+      return NavItem.toCommandBarItem(child, inheritedProps, navigator);
     });
 
     const items = all_items.filter(item => !item.far && !item.overflow);
@@ -34,7 +37,7 @@ export default class Navigator extends React.Component {
         items={items}
         overflowItems={overflow_items}
         farItems={far_items}
-        style={theme.Navigator}
+        styles={{root: rootStyle}}
       />
     )
   }
