@@ -1,2 +1,2 @@
-export { default as Navigator } from './Navigator';
-export { default as NavItem } from './NavItem';
+export { default as CommandBar } from './CommandBar';
+export { default as CommandBarItem } from './CommandBarItem';

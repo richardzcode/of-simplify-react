@@ -14,36 +14,38 @@ npm install of-simplify-react
 
 ## Components
 
-### Navigator
+### CommandBar
 
-Navigator wraps around `CommandBar` to provide a simple menu system solution.
+- Write `CommandBarItem` like React component.
+- Style `CommandBar` and `CommandBarItem` like React component.
+- Handle `onCommand` event to reduce repetitive code.
 
 ```
 import React, { Component } from 'react';
-import OfSimplify, { Navigator, NavItem } from 'of-simplify-react';
+import OfSimplify, { CommandBar, CommandBarItem } from 'of-simplify-react';
 
 OfSimplify.initializeIcons(); // in order to show icons
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.handleNavigate = this.handleNavigate.bind(this);
+    this.handleCommand = this.handleCommand.bind(this);
   }
 
-  handleNavigate(key) {
+  handleCommand(key) {
     console.log('menu item clicked: ' + key);
   }
 
   render() {
-    <Navigator onNavigate={this.handleNavigate} style={{ padding: '0.5em', display: 'flex', alignItems: 'flex-end' }}>
-      <NavItem key="home" icon="Home" iconStyle={{ fontWeight: 'bold' }}  checked>Home</NavItem>
-      <NavItem key="cat" icon="Cat">Cat</NavItem>
-      <NavItem key="coffee" icon="CoffeeScript">Coffee</NavItem>
+    <CommandBar onCommand={this.handleCommand} style={{ padding: '0.5em', display: 'flex', alignItems: 'flex-end' }}>
+      <CommandBarItem key="home" icon="Home" iconStyle={{ fontWeight: 'bold' }}  checked>Home</CommandBarItem>
+      <CommandBarItem key="cat" icon="Cat">Cat</CommandBarItem>
+      <CommandBarItem key="coffee" icon="CoffeeScript">Coffee</CommandBarItem>
 
-      <NavItem key="preferences" overflow>Preferences</NavItem>
+      <CommandBarItem key="preferences" overflow>Preferences</CommandBarItem>
 
-      <NavItem key="signOut" icon="SignOut" style={{ textDecoration: 'underline' }} far>Sign Out</NavItem>
-    </Navigator>
+      <CommandBarItem key="signOut" icon="SignOut" style={{ textDecoration: 'underline' }} far>Sign Out</CommandBarItem>
+    </CommandBar>
   }
 }
 ```

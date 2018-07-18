@@ -1,15 +1,15 @@
 import React from 'react';
 import { JS, Logger } from 'fsts';
 
-const logger = new Logger('NavItem');
+const logger = new Logger('CommandBarItem');
 
-export default class NavItem extends React.Component {
-  static toCommandBarItem(el, inheritedProps, navigator) {
+export default class CommandBarItem extends React.Component {
+  static toCommandBarItem(el, inheritedProps, bar) {
     const { label, icon, style, iconStyle, overflow, far } = el.props;
     const theme = inheritedProps.theme || el.props.theme || {};
-    const navigatorTheme = theme.Navigator || {};
-    const rootStyle = Object.assign({}, navigatorTheme.item, style);
-    const iconStyl = Object.assign({}, navigatorTheme.icon, iconStyle);
+    const barTheme = theme.CommandBar || {};
+    const rootStyle = Object.assign({}, barTheme.item, style);
+    const iconStyl = Object.assign({}, barTheme.icon, iconStyle);
 
     return Object.assign(
       {
@@ -19,7 +19,7 @@ export default class NavItem extends React.Component {
         buttonStyles: { root: rootStyle, icon: iconStyl },
         far: !!far,
         overflow: !!overflow,
-        onClick: () => navigator && navigator.navigateHandler(el.key)
+        onClick: () => bar && bar.commandHandler(el.key)
       },
       JS.lessProps(el.props, [
         'label',
@@ -32,7 +32,7 @@ export default class NavItem extends React.Component {
   }
 
   render() {
-    logger.warn('NavItem is just a placeholder, not for actual rendering');
+    logger.warn('CommandBarItem is just a placeholder, not for actual rendering');
     return <div>{this.props.children}</div>
   }
 }
