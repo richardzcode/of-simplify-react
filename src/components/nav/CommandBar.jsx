@@ -19,7 +19,7 @@ export default class CommandBar extends React.Component {
   render() {
     const { style } = this.props;
     const theme = this.props.theme || {};
-    const rootStyle = Object.assign({}, JS.lessProps(theme.CommandBar, ['item', 'icon']), style);
+    const rootStyle = Object.assign({}, JS.lessProps(theme.CommandBar, 'item'), style);
 
     const inheritedProps = { theme };
     const bar = this;

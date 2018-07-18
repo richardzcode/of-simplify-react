@@ -5,18 +5,18 @@ const logger = new Logger('CommandBarItem');
 
 export default class CommandBarItem extends React.Component {
   static toCommandBarItem(el, inheritedProps, bar) {
-    const { label, icon, style, iconStyle, overflow, far } = el.props;
+    const { label, icon, style, overflow, far } = el.props;
     const theme = inheritedProps.theme || el.props.theme || {};
-    const barTheme = theme.CommandBar || {};
-    const rootStyle = Object.assign({}, barTheme.item, style);
-    const iconStyl = Object.assign({}, barTheme.icon, iconStyle);
+    const barStyle = theme.CommandBar || {};
+    const itemStyle = Object.assign({}, barStyle.item, style);
+    const rootStyle = JS.lessProps(itemStyle, 'icon');
 
     return Object.assign(
       {
         key: el.key,
         name: label || el.props.children,
         iconProps: icon? { iconName: icon } : null,
-        buttonStyles: { root: rootStyle, icon: iconStyl },
+        buttonStyles: { root: rootStyle, icon: itemStyle.icon },
         far: !!far,
         overflow: !!overflow,
         onClick: () => bar && bar.commandHandler(el.key)

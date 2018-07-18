@@ -38,7 +38,7 @@ class App extends Component {
 
   render() {
     <CommandBar onCommand={this.handleCommand} style={{ padding: '0.5em', display: 'flex', alignItems: 'flex-end' }}>
-      <CommandBarItem key="home" icon="Home" iconStyle={{ fontWeight: 'bold' }}  checked>Home</CommandBarItem>
+      <CommandBarItem key="home" icon="Home" style={{ icon: { fontWeight: 'bold' } }}  checked>Home</CommandBarItem>
       <CommandBarItem key="cat" icon="Cat">Cat</CommandBarItem>
       <CommandBarItem key="coffee" icon="CoffeeScript">Coffee</CommandBarItem>
 
