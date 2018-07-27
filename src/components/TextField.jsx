@@ -1,7 +1,7 @@
-import react from 'react';
+import React from 'react';
 import { TextField as _TextField } from 'office-ui-fabric-react/lib/TextField';
 
-export default class TextField extends react.Component {
+export default class TextField extends React.Component {
   constructor(props) {
     super(props);
 
