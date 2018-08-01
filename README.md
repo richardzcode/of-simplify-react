@@ -14,6 +14,9 @@ npm install of-simplify-react
 
 ## Components
 
+- [CommandBar](#commandbar)
+- [AutoComplete](#autocomplete)
+
 ### CommandBar
 
 - Write `CommandBarItem` like React component.
@@ -120,6 +123,7 @@ class App extends Component {
       autoCompleteSearch={autoCompleteSearch}
       autoCompleteRenderCell={this.autoCompleteRenderCell}
       onChange={this.handleChange}
+      underlined
     />
   }
 }
