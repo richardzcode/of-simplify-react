@@ -48,4 +48,81 @@ class App extends Component {
     </CommandBar>
   }
 }
+
+export default App;
+```
+
+### AutoComplete
+
+- Simple auto-complete component combines `TextField` and `List`
+
+```
+import React, { Component } from 'react';
+import { AutoComplete } from 'of-simplify-react';
+
+const directors = [
+  { name: 'John Thompson' },
+  { name: 'Bradford Smith' },
+  { name: 'Satya Nadella' },
+  { name: 'William Gates' },
+  { name: 'Amy Hood' },
+  { name: 'Christopher Caposseia' },
+  { name: 'Kathleen Hogan' },
+  { name: 'Jean-Philippe Courtois' },
+  { name: 'Margaret Johnson' },
+  { name: 'Kevin Scott' },
+  { name: 'Sean Ventura' },
+  { name: 'Reid Hoffman' },
+  { name: 'Hugh Johnston' },
+  { name: 'Teri List-Stoll' },
+  { name: 'Charles Noski' },
+  { name: 'Helmut Panke' },
+  { name: 'Sandra Peterson' },
+  { name: 'Charles Scharf' },
+  { name: 'John Stanton' },
+  { name: 'Padmasree Warrior' }
+];
+
+const autoCompleteSearch= function(directors, q) {
+  q = q.toLowerCase();
+  return directors.filter(director => director.name.toLowerCase().match(q))
+}
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(val) {
+    console.log('selected ' + val);
+  }
+
+  autoCompleteRenderCell(director, style) {
+    return <div style={style.name}>director.name</div>
+  }
+
+  render() {
+    const style = {
+      list: {
+        marginLeft: '5em',
+        item: { name: { color: 'blue' } }
+      }
+    }
+
+    <AutoComplete
+      prefix="Search Board"
+      data={directors}
+      value=""
+      style={style}
+      autoCompleteValue={director => director.name}
+      autoCompleteSearch={autoCompleteSearch}
+      autoCompleteRenderCell={this.autoCompleteRenderCell}
+      onChange={this.handleChange}
+    />
+  }
+}
+
+export default App;
 ```
