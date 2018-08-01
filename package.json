@@ -1,6 +1,6 @@
 {
   "name": "of-simplify-react",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Easy to use React components extend Office UI Fabric",
   "main": "lib/index.js",
   "scripts": {
